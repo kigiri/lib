@@ -1,4 +1,6 @@
 # lib
+Bunch of libs for my `Deno` life
+
 ## `flags`
 Parse cli flags for deno, automatically generate shorthands and colorfull help
 
