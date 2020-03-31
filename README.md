@@ -1,5 +1,5 @@
 # lib
-## flags
+## `flags`
 Parse cli flags for deno, automatically generate shorthands and colorfull help
 
 ### Usage
