@@ -15,7 +15,7 @@ export const lock = async ({ debug = false, kill = true } = {}) => {
   if (pid) {
     if (!kill) {
       console.log(`Process already started on pid: ${pid}, delete .pid file and retry`)
-      retrun Deno.exit(1)
+      return Deno.exit(1)
     }
     const killProcess = await Deno.run({
       cmd: [ 'taskkill', '/F', '/PID', pid ],
