@@ -6,7 +6,7 @@ const toUTF8 = buff => {
   return decoder.decode(buff)
 }
 
-export const bootstrap = async ({ debug = false, kill = true } = {}) => {
+export const lock = async ({ debug = false, kill = true } = {}) => {
   const pid = await readFileStr('.pid')
     .catch(err => err instanceof Deno.errors.NotFound ? '' : Promise.reject(err))
 
