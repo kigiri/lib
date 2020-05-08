@@ -52,3 +52,14 @@ const flags = F({
   // or, use the bool helper function:
   paste: { ...F.bool('paste the content', true), shorthand: 'v' },
 })
+```
+
+## `bootlock-windows`
+Allow a single instance of this program to run.
+
+### Usage
+```js
+import { lock } from 'https://kigiri.github.io/lib/bootlock-windows.js`
+await lock({ debug: false,  kill: true })
+```
+
