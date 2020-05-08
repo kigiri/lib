@@ -6,13 +6,17 @@ const toUTF8 = buff => {
   return decoder.decode(buff)
 }
 
-export const bootstrap = async ({ debug = false } = {}) => {
+export const bootstrap = async ({ debug = false, kill = true } = {}) => {
   const pid = await readFileStr('.pid')
     .catch(err => err instanceof Deno.errors.NotFound ? '' : Promise.reject(err))
 
   const log = debug ? console.log : () => {}
 
   if (pid) {
+    if (!kill) {
+      console.log(`Process already started on pid: ${pid}, delete .pid file and retry`)
+      retrun Deno.exit(1)
+    }
     const killProcess = await Deno.run({
       cmd: [ 'taskkill', '/F', '/PID', pid ],
       stdout: 'piped',
